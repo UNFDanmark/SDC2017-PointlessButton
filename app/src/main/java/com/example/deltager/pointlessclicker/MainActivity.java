@@ -5,6 +5,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.ArrayList;
+
+import static com.example.deltager.pointlessclicker.R.id.redButt;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -14,13 +18,6 @@ public class MainActivity extends AppCompatActivity {
 
         long clickCounter = 0;
         Button red;
-
-
-
-
-
-        red = findViewById(redbutt);
-
 
 
     }
