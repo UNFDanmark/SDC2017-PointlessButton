@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity
 
     public void updateSoundSetting(View view)
     {
-        mute.setImageIcon();
+        //mute.setImageIcon();
     }
 
     public void interactMenu(View view)
