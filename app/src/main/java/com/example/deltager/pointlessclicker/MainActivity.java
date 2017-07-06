@@ -4,56 +4,82 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Random;
+import java.util.TimerTask;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity
+{
 
-    // Variables
-    private long clickCounter = 0;
-    TextView counter;
-    ImageButton red;
+    private long clickCounter = 0;                                                                  // Variables
+    public TextView counter;
+    public ImageButton red;
+    public ImageButton mute;
+    public ImageButton menu;
+    public EditText addAdjective;
+    public EditText addNickName;
+    public Toast mtoast;
+    public double chance = 1;
 
-    // ved app start
-    @Override
+    @Override   // ved app start
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Path to layout objects
-        red = (ImageButton) findViewById(R.id.redButt);
+        red = (ImageButton) findViewById(R.id.redButt);     // Path to layout objects
+        mute = (ImageButton)findViewById(R.id.soundMute);
+        menu = (ImageButton) findViewById(R.id.menuButt);
         counter = (TextView) findViewById(R.id.clickText);
+        addNickName = (EditText) findViewById(R.id.addNickName);
+        addAdjective = (EditText) findViewById(R.id.addAdjective);
     }
 
-    public int genRandomNum()                                               // Generate random number
-    {
-        int randomNum = (int) (Math.random() * 1000);
-        System.out.println(randomNum);                                      // Print out the value of randomNum
-        return randomNum;
-    }
-
-    public void updateClickCounter()                                        // UpdateClickCounter
+    public void updateClickCounter()    // UpdateClickCounter
     {
         clickCounter ++;
         counter.setText("Clicks: " + clickCounter);
     }
 
-    // Click counter
-    public void click (View view)
+    public void updateSoundSetting(View view)
+    {
+        mute.setImageIcon();
+    }
+
+    public void interactMenu(View view)
+    {
+
+    }
+
+    public int genRandomNum()   // Generate random number
+    {
+        int randomNum = (int) (Math.random() * 1000000);
+        return randomNum;
+    }
+
+    public void click(View view)    // Click counter
     {
         updateClickCounter();
         makeToast();
     }
 
-    public void makeToast () {
+    public void makeToast() {
         String toastText = "Cancer";
 
-        if (genRandomNum() < 200) {
-            Toast.makeText(this, toastText, Toast.LENGTH_LONG).show();
+        if (genRandomNum() < 10000 * chance) {
+            if (mtoast != null) {
+                mtoast.cancel();
+            }
+            mtoast = Toast.makeText(this, toastText, Toast.LENGTH_SHORT);
+            mtoast.show();
+            chance = 1;
+        } else {
+            chance = chance * 1.15;
+            System.out.println(chance);
         }
     }
 }
