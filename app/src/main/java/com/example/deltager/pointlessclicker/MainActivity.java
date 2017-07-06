@@ -12,8 +12,7 @@ import android.widget.Toast;
 import java.util.Random;
 import java.util.TimerTask;
 
-public class MainActivity extends AppCompatActivity
-{
+public class MainActivity extends AppCompatActivity {
 
     private long clickCounter = 0;                                                                  // Variables
     public TextView counter;
@@ -25,7 +24,10 @@ public class MainActivity extends AppCompatActivity
     public Toast mtoast;
     public double chance = 1;
 
-    @Override   // ved app start
+    insultGenerator insult = new insultGenerator();
+
+    // ved app start
+    @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
@@ -67,16 +69,17 @@ public class MainActivity extends AppCompatActivity
         makeToast();
     }
 
-    public void makeToast() {
-        String toastText = "Cancer";
+
+    public void makeToast () {
+        String toastText = insult.getRandomInsult();
 
         if (genRandomNum() < 10000 * chance) {
             if (mtoast != null) {
                 mtoast.cancel();
+                Toast.makeText(this, toastText, Toast.LENGTH_LONG).show();
+                Toast.makeText(this, toastText, Toast.LENGTH_LONG).show();
+                chance = 1;
             }
-            mtoast = Toast.makeText(this, toastText, Toast.LENGTH_SHORT);
-            mtoast.show();
-            chance = 1;
         } else {
             chance = chance * 1.15;
             System.out.println(chance);
