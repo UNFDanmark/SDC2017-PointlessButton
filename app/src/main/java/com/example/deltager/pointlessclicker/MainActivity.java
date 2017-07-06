@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     public ImageButton menu;
     public EditText addAdjective;
     public EditText addNickName;
-    public Toast mtoast;
+    public Toast toast;
     public double chance = 1;
 
     insultGenerator insult = new insultGenerator();
@@ -74,10 +74,11 @@ public class MainActivity extends AppCompatActivity {
         String toastText = insult.getRandomInsult();
 
         if (genRandomNum() < 10000 * chance) {
-            if (mtoast != null) {
-                mtoast.cancel();
+            if (toast != null) {
+                toast.cancel();
                 Toast.makeText(this, toastText, Toast.LENGTH_LONG).show();
                 Toast.makeText(this, toastText, Toast.LENGTH_LONG).show();
+                toast.show();
                 chance = 1;
             }
         } else {
