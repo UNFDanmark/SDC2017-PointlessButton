@@ -70,11 +70,11 @@ public class MainActivity extends AppCompatActivity {
     public void makeToast() {
         String toastText = insult.getRandomInsult();
 
-        if (genRandomNum() < 100 * chance) {
+        if (genRandomNum() < 100000 * chance) {
             if (toast != null) {
-                toast.cancel();
-            }
-            toast = Toast.makeText(this, toastText, Toast.LENGTH_LONG);
+               // toast.cancel();
+        }
+        toast = Toast.makeText(this, toastText, Toast.LENGTH_LONG);
             toast.show();
             toast.show();
             toast.show();
