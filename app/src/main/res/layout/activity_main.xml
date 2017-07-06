@@ -8,16 +8,22 @@
 
     <ImageButton
         android:id="@+id/redButt"
-        android:layout_width="136dp"
-        android:layout_height="154dp"
+        android:layout_width="226dp"
+        android:layout_height="259dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="206dp"
+        android:layout_marginTop="93dp"
+        android:elevation="0dp"
         android:onClick="click"
+        android:adjustViewBounds="true"
+        android:scaleType="centerInside"
+        android:background="@null"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/redbutt" />
+        app:srcCompat="@drawable/red1"
+        tools:layout_editor_absoluteY="124dp"
+        tools:layout_editor_absoluteX="107dp" />
 
     <EditText
         android:id="@+id/addNickName"
