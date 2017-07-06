@@ -14,27 +14,26 @@ import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
 
-    private long clickCounter = 0;                                                                  // Variables
+    private long clickCounter = 0;  // Variables
     public TextView counter;
     public ImageButton red;
     public ImageButton mute;
     public ImageButton menu;
     public EditText addAdjective;
     public EditText addNickName;
-    public Toast mtoast;
+    public Toast toast;
     public double chance = 1;
 
     insultGenerator insult = new insultGenerator();
 
     // ved app start
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         red = (ImageButton) findViewById(R.id.redButt);     // Path to layout objects
-        mute = (ImageButton)findViewById(R.id.soundMute);
+        mute = (ImageButton) findViewById(R.id.soundMute);
         menu = (ImageButton) findViewById(R.id.menuButt);
         counter = (TextView) findViewById(R.id.clickText);
         addNickName = (EditText) findViewById(R.id.addNickName);
@@ -43,17 +42,15 @@ public class MainActivity extends AppCompatActivity {
 
     public void updateClickCounter()    // UpdateClickCounter
     {
-        clickCounter ++;
+        clickCounter++;
         counter.setText("Clicks: " + clickCounter);
     }
 
-    public void updateSoundSetting(View view)
-    {
-        //mute.setImageIcon();
+    public void updateSoundSetting() {
+
     }
 
-    public void interactMenu(View view)
-    {
+    public void interactMenu() {
 
     }
 
@@ -70,19 +67,24 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void makeToast () {
+    public void makeToast() {
         String toastText = insult.getRandomInsult();
 
-        if (genRandomNum() < 10000 * chance) {
-            if (mtoast != null) {
-                mtoast.cancel();
-                Toast.makeText(this, toastText, Toast.LENGTH_LONG).show();
-                Toast.makeText(this, toastText, Toast.LENGTH_LONG).show();
-                chance = 1;
+        if (genRandomNum() < 100 * chance) {
+            if (toast != null) {
+                toast.cancel();
             }
+            toast = Toast.makeText(this, toastText, Toast.LENGTH_LONG);
+            toast.show();
+            toast.show();
+            toast.show();
+            toast.show();
+            chance = 1;
+
         } else {
             chance = chance * 1.15;
             System.out.println(chance);
         }
+
     }
 }
