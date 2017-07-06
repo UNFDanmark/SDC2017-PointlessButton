@@ -7,32 +7,84 @@
     tools:context="com.example.deltager.pointlessclicker.MainActivity">
 
     <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="49dp"
-        android:layout_height="52dp"
-        app:srcCompat="@android:drawable/ic_lock_silent_mode"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="7dp"
-        android:layout_marginLeft="319dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
-
-    <Switch
-        android:id="@+id/lyd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:checked="true"
-        android:text="Sound"
-        android:textOff="Sound Off"
-        android:textOn="Sound On"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="16dp" />
-
-    <ImageButton
-        android:id="@+id/redbutt"
+        android:id="@+id/redButt"
         android:layout_width="140dp"
         android:layout_height="142dp"
         app:srcCompat="@mipmap/ic_launcher"
-        tools:layout_editor_absoluteX="122dp"
-        tools:layout_editor_absoluteY="184dp" />
+        android:layout_marginTop="167dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/addNickName"
+        android:layout_width="364dp"
+        android:layout_height="49dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Add mean name:"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText3"
+        app:layout_constraintHorizontal_bias="0.0" />
+
+    <EditText
+        android:id="@+id/editText3"
+        android:layout_width="364dp"
+        android:layout_height="49dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Add mean adjective:"
+        app:layout_constraintRight_toRightOf="@+id/soundMute"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintVertical_bias="0.747"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/soundMute"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_lock_silent_mode" />
+
+    <TextView
+        android:id="@+id/clickText"
+        android:layout_width="310dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="16dp"
+        android:text="Clicks: 0"
+        android:textSize="24sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        tools:layout_editor_absoluteY="16dp"
+        app:layout_constraintRight_toLeftOf="@+id/soundMute"
+        android:layout_marginRight="8dp"
+        app:layout_constraintHorizontal_bias="0.0" />
+
+    <ImageButton
+        android:id="@+id/menuButt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="7dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addNickName"
+        app:srcCompat="@android:drawable/ic_menu_add"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintHorizontal_bias="1.0" />
 
 </android.support.constraint.ConstraintLayout>
