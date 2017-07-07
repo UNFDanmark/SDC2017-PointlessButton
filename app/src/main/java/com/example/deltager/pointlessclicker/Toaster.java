@@ -26,7 +26,7 @@ public class Toaster {
     public void makeToast(MainActivity activity) {
 
 
-        if (genRandomNum() < 100 * chance) {
+        if (genRandomNum() < 100 * chance) { // make 100 for best use
             if (toast != null) {
                 toast.cancel();
             }

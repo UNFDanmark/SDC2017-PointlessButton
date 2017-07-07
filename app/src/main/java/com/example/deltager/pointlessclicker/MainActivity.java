@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         mute = (ImageButton) findViewById(R.id.soundMute);
         menu = (ImageButton) findViewById(R.id.menuButt);
         counter = (TextView) findViewById(R.id.clickText);
+
     }
 
     //click counter
@@ -60,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
         Intent menu = new Intent(this, menuActivity.class);
         startActivity(menu);
     }
+
 
 
 }
