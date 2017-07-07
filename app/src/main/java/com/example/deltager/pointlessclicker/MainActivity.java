@@ -57,11 +57,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void interactMenu (View view) {
+    public void interactMenu(View view) {
         Intent menu = new Intent(this, menuActivity.class);
         startActivity(menu);
     }
-
 
 
 }

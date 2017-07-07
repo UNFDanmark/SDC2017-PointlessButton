@@ -17,7 +17,6 @@ public class Animation extends View {
     Boolean skift;
 
 
-
     public Animation(Context context) {
         super(context);
         setup();
@@ -33,7 +32,7 @@ public class Animation extends View {
         setup();
     }
 
-    public void setup(){
+    public void setup() {
         redbut1 = BitmapFactory.decodeResource(this.getResources(), R.drawable.red1);
         redbut2 = BitmapFactory.decodeResource(this.getResources(), R.drawable.red2);
 

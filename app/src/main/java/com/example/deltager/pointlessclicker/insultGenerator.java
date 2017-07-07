@@ -14,6 +14,7 @@ public class insultGenerator {
     public Boolean onetime = false;
     public double chanceadd = 1;
 
+
     static ArrayList<String> startSentence = new ArrayList<String>();
 
     static {
@@ -24,12 +25,22 @@ public class insultGenerator {
         startSentence.add("Did you know that your girlfriend looks like ");
         startSentence.add("Please, just leave me alone. I don't want to talk to ");
         startSentence.add("God, go away, I don't want to be seen with ");
-        startSentence.add("Your room looks like ");
+        startSentence.add("Your room probably looks like ");
         startSentence.add("Your right foot smells like ");
-        startSentence.add("You run like ");
+        startSentence.add("I bet you run like ");
         startSentence.add("You avoid responsibilities like ");
         startSentence.add("You act like ");
-        startSentence.add("OH yeah, click me, daddy. Click me like");
+        startSentence.add("You cut grass like ");
+        startSentence.add("You eat like ");
+        startSentence.add("You sleep like ");
+        startSentence.add("I bet you make love like ");
+        startSentence.add("You hit like ");
+        startSentence.add("You kiss like ");
+        startSentence.add("You Program code like ");
+        startSentence.add("Your dog probably eats ");
+        startSentence.add("I bet your cat likes licking ");
+        startSentence.add("Your planning is just as bad as ");
+        startSentence.add("OH yeah, click me harder! OH, daddy, click me like ");
     }
 
     public String getRandomStartSentence() {
@@ -62,7 +73,6 @@ public class insultGenerator {
         adjective.add("an overemotional ");
         adjective.add("a sarcastic ");
         adjective.add("an unreliable ");
-
     }
 
     public String getRandomAdjective() {
@@ -74,7 +84,6 @@ public class insultGenerator {
     static ArrayList<String> substantiv = new ArrayList<String>();
 
     static {
-
         substantiv.add("lawnmower!");
         substantiv.add("washing machine");
         substantiv.add("dishwasher");
@@ -99,7 +108,7 @@ public class insultGenerator {
         substantiv.add("fudgefiller");
         substantiv.add("cupcake");
         substantiv.add("doodledood");
-
+        substantiv.add("Harry Potter looking fellow");
 
     }
 
@@ -110,7 +119,6 @@ public class insultGenerator {
     }
 
     public String getRandomInsult() {
-
 
         // time
         Calendar time = Calendar.getInstance();
@@ -126,13 +134,11 @@ public class insultGenerator {
             if (hour < 20 || hour > 3) {
                 onetime = false;
             }
-
             chanceadd *= 1.25;
 
             String insult = getRandomStartSentence() + getRandomAdjective() + getRandomSubstantiv();
             return insult;
         }
-
 
     }
 
@@ -144,5 +150,16 @@ public class insultGenerator {
 
 
     }
+
+   /* public String getContact(MainActivity activity) {
+        Cursor managedCursor = getContentResolver().query(ContactsContract.Contacts.CONTENT_URI, null, null, null, null);
+        int size = managedCursor.getCount();
+
+
+        String contactName = "contactName";
+
+        return contactName;
+    }*/
+
 
 }
