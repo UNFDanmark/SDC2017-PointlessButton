@@ -77,7 +77,7 @@ public class insultGenerator {
         substantiv.add("retard!");
         substantiv.add("soap gobbler");
         substantiv.add("muggle!");
-        substantiv.add("piece of shit, that no one even bothers to check in on. Really, you should go outside");
+        substantiv.add("piece of cupcake fill, that no one even bothers to check in on. Really, you should go outside");
         substantiv.add("white piece of slightly rotten bread");
         substantiv.add("soul sucking dementor from Harry Potter.");
         substantiv.add("stuck-up, half-witted, scruffy-looking nerf herder!");

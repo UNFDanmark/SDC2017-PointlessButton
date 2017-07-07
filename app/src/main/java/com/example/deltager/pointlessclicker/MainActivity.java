@@ -1,5 +1,6 @@
 package com.example.deltager.pointlessclicker;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -19,8 +20,6 @@ public class MainActivity extends AppCompatActivity {
     public ImageButton red;
     public ImageButton mute;
     public ImageButton menu;
-    public EditText addAdjective;
-    public EditText addNickName;
 
     Toaster toaster = new Toaster();
 
@@ -34,8 +33,6 @@ public class MainActivity extends AppCompatActivity {
         mute = (ImageButton) findViewById(R.id.soundMute);
         menu = (ImageButton) findViewById(R.id.menuButt);
         counter = (TextView) findViewById(R.id.clickText);
-        addNickName = (EditText) findViewById(R.id.addNickName);
-        addAdjective = (EditText) findViewById(R.id.addAdjective);
     }
 
     //click counter
@@ -54,9 +51,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
-    public void interactMenu() {
-
+    public void interactMenu (View view) {
+        Intent menu = new Intent(this, menuActivity.class);
+        startActivity(menu);
     }
 
 
