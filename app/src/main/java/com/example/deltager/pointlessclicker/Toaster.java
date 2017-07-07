@@ -15,7 +15,7 @@ public class Toaster {
 
 
 
-    public int genRandomNum()   // Generate random number
+    public static int genRandomNum()   // Generate random number
     {
         int randomNum = (int) (Math.random() * 1000000);
         return randomNum;
@@ -24,12 +24,14 @@ public class Toaster {
 
 
     public void makeToast(MainActivity activity) {
-        String toastText = insult.getRandomInsult();
+
 
         if (genRandomNum() < 100 * chance) {
             if (toast != null) {
                 toast.cancel();
             }
+            String toastText = insult.getRandomInsult();
+            System.out.println(toastText);
             toast = Toast.makeText(activity, toastText, Toast.LENGTH_LONG);
             toast.show();
             toast.show();
@@ -38,8 +40,10 @@ public class Toaster {
             chance = 1;
 
         } else {
-            chance = chance * 1.15;
-            System.out.println(chance);
+            chance *= 1.15;
+            if (chance > 1000){
+                System.out.println(chance);
+            }
         }
 
     }

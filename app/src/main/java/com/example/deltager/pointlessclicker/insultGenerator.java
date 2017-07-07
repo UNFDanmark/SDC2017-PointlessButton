@@ -1,12 +1,16 @@
 package com.example.deltager.pointlessclicker;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 /**
  * Created by deltager on 06-07-17.
  */
 
 public class insultGenerator {
+
+    public Boolean onetime = false;
+    public double chanceadd = 1;
 
     static ArrayList<String> startSentence = new ArrayList<String>();
 
@@ -100,10 +104,32 @@ public class insultGenerator {
         return substantiv.get(randomSubstantiv);
     }
 
-    public String getRandomInsult (){
-        String insult = getRandomStartSentence() + getRandomAdjective() + getRandomSubstantiv();
+    public String getRandomInsult() {
 
-        return insult;
+
+        // time
+        Calendar time = Calendar.getInstance();
+        int hour = time.get(Calendar.HOUR_OF_DAY);
+        // time end  (use hour as int, number 0-23)
+        if (hour >= 20 && onetime == false && Toaster.genRandomNum() < 800 * chanceadd
+                || hour <= 3 && onetime == false && Toaster.genRandomNum() < 800 * chanceadd) {
+
+            String insult = "You should go to sleep you " + getRandomSubstantiv();
+            onetime = true;
+            return insult;
+        } else {
+            if (hour < 20 || hour > 3) {
+                onetime = false;
+            }
+
+            chanceadd *= 1.25;
+
+            String insult = getRandomStartSentence() + getRandomAdjective() + getRandomSubstantiv();
+            return insult;
+        }
+
+
     }
+
 
 }

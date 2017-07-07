@@ -11,6 +11,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Calendar;
 import java.util.Random;
 import java.util.TimerTask;
 
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     public ImageButton red;
     public ImageButton mute;
     public ImageButton menu;
+
 
     Toaster toaster = new Toaster();
 
@@ -39,6 +41,9 @@ public class MainActivity extends AppCompatActivity {
     public void click(View view) {
         updateClickCounter();
         toaster.makeToast(this);
+
+
+        // System.out.println(hour);    TEST AF TID
     }
 
     public void updateClickCounter()    // UpdateClickCounter
