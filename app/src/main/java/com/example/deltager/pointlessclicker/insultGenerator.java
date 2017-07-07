@@ -1,5 +1,7 @@
 package com.example.deltager.pointlessclicker;
 
+import android.widget.EditText;
+
 import java.util.ArrayList;
 
 /**
@@ -23,6 +25,7 @@ public class insultGenerator {
         startSentence.add("You run like ");
         startSentence.add("You avoid responsibilities like ");
         startSentence.add("You act like ");
+        startSentence.add("OH yeah, click me, daddy. Click me like");
     }
 
     public String getRandomStartSentence() {
@@ -92,6 +95,8 @@ public class insultGenerator {
         substantiv.add("fudgefiller");
         substantiv.add("cupcake");
         substantiv.add("doodledood");
+
+
     }
 
     public String getRandomSubstantiv() {
@@ -100,10 +105,18 @@ public class insultGenerator {
         return substantiv.get(randomSubstantiv);
     }
 
-    public String getRandomInsult (){
+    public String getRandomInsult() {
         String insult = getRandomStartSentence() + getRandomAdjective() + getRandomSubstantiv();
 
         return insult;
+    }
+
+    public void addSubstantiv(String addedSubstantiv) {
+        // when user writes
+        // add string X to Arraylist
+        substantiv.add(addedSubstantiv);
+
+
     }
 
 }
