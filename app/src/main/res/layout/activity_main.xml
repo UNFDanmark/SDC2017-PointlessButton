@@ -24,7 +24,7 @@
         app:srcCompat="@drawable/red1"
         tools:layout_editor_absoluteY="124dp"
         tools:layout_editor_absoluteX="107dp" />
-
+    <!--- just a commnet -->
     <EditText
         android:id="@+id/addNickName"
         android:layout_width="364dp"
