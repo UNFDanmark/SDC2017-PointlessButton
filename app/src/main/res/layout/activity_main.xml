@@ -24,9 +24,9 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/red1"
         tools:layout_editor_absoluteY="124dp"
-        tools:layout_editor_absoluteX="107dp" />
+        tools:layout_editor_absoluteX="107dp"
+        />
     <!--- just a commnet -->
-        app:srcCompat="@drawable/red1" />
 
     <EditText
         android:id="@+id/addNickName"
