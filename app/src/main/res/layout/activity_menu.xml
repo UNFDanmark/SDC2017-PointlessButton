@@ -19,8 +19,8 @@
         android:layout_marginTop="8dp"
         android:layout_weight="1"
         android:ems="10"
+        android:hint="Example: a fussy"
         android:inputType="textPersonName"
-        android:hint="Add Adjective:"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.161"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -37,7 +37,7 @@
         android:layout_marginTop="8dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:hint="Add noun:"
+        android:hint='Example: "monkey"'
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.162"
         app:layout_constraintLeft_toLeftOf="parent"
