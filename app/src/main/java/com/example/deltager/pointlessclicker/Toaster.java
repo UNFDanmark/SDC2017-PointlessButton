@@ -14,13 +14,11 @@ public class Toaster {
     public Toast toast;
 
 
-
     public static int genRandomNum()   // Generate random number
     {
         int randomNum = (int) (Math.random() * 1000000);
         return randomNum;
     }
-
 
 
     public void makeToast(MainActivity activity) {
@@ -41,7 +39,7 @@ public class Toaster {
 
         } else {
             chance *= 1.15;
-            if (chance > 1000){
+            if (chance > 1000) {
                 System.out.println(chance);
             }
         }
