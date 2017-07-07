@@ -9,9 +9,13 @@ import android.widget.Toast;
 public class Toaster {
 
 
-    insultGenerator insult = new insultGenerator();
+    public insultGenerator insult;
     public double chance = 1;
     public Toast toast;
+
+    public Toaster (insultGenerator insult) {
+        this.insult = insult;
+    }
 
 
     public static int genRandomNum()   // Generate random number

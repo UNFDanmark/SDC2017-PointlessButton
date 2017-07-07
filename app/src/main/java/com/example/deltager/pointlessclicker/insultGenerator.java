@@ -16,9 +16,12 @@ public class insultGenerator {
     //Hent context. Skal bruges i getContact
     private Context context;
 
+    public insultGenerator(Context context){
+        this.context = context;
+    }
+
     public Boolean onetime = false;
     public double chanceadd = 1;
-
 
     static ArrayList<String> startSentence = new ArrayList<String>();
 
@@ -157,11 +160,9 @@ public class insultGenerator {
 
     }
 
-    public String getContact(MainActivity activity) {
-        Cursor managedCursor = activity.getContentResolver().query(ContactsContract.Contacts.CONTENT_URI, null, null, null, null);
+    public String getRandomContact() {
+        Cursor managedCursor = context.getContentResolver().query(ContactsContract.Contacts.CONTENT_URI, null, null, null, null);
         int size = managedCursor.getCount();
-
-
         String contactName = "contactName";
 
         return contactName;
