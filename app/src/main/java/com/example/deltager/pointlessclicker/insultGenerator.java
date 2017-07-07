@@ -45,7 +45,17 @@ public class insultGenerator {
         adjective.add("an retarded ");
         adjective.add("a weird looking ");
         adjective.add("an awkward ");
-        adjective.add("a slightly annoying ");
+        adjective.add("a bossy ");
+        adjective.add("a compulsive ");
+        adjective.add("a fussy ");
+        adjective.add("a gullible ");
+        adjective.add("an irresponsible ");
+        adjective.add("a moody ");
+        adjective.add("a narrow-minded ");
+        adjective.add("an overemotional ");
+        adjective.add("a sarcastic ");
+        adjective.add("an unreliable ");
+
     }
 
     public String getRandomAdjective() {
@@ -69,10 +79,19 @@ public class insultGenerator {
         substantiv.add("muggle!");
         substantiv.add("piece of shit, that no one even bothers to check in on. Really, you should go outside");
         substantiv.add("white piece of slightly rotten bread");
-        substantiv.add("soul sucking dementor from Harry Potter. Look at you! Cheer up!");
+        substantiv.add("soul sucking dementor from Harry Potter.");
         substantiv.add("stuck-up, half-witted, scruffy-looking nerf herder!");
-        substantiv.add("sad piece of ham");
-
+        substantiv.add("leather hat!");
+        substantiv.add("shroomwad");
+        substantiv.add("piece of paper");
+        substantiv.add("jerkbucket");
+        substantiv.add("fartface");
+        substantiv.add("elderberry");
+        substantiv.add("fartnugget");
+        substantiv.add("fishface");
+        substantiv.add("fudgefiller");
+        substantiv.add("cupcake");
+        substantiv.add("doodledood");
     }
 
     public String getRandomSubstantiv() {
