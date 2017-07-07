@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:focusableInTouchMode="true" >
     tools:context="com.example.deltager.pointlessclicker.menuActivity">
 
     <EditText
@@ -24,29 +25,53 @@
         app:layout_constraintHorizontal_bias="0.161"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textAddName"
-        app:layout_constraintVertical_bias="0.029" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/textAddName"
+        android:id="@+id/textAddNoun"
         android:layout_width="239dp"
-        android:layout_height="48dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_height="47dp"
+        android:layout_marginBottom="179dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_weight="1"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Add Name:"
+        android:text="Add Noun:"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.162"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.226" />
+        app:layout_constraintTop_toBottomOf="@+id/textAddAdjective"
+        app:layout_constraintVertical_bias="0.08" />
+
+    <Button
+        android:id="@+id/addAdjectiveButt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="13dp"
+        android:layout_marginTop="0dp"
+        android:onClick="addAdjectiveToList"
+        android:text="Add"
+        app:layout_constraintBottom_toBottomOf="@+id/textAddAdjective"
+        app:layout_constraintLeft_toRightOf="@+id/textAddAdjective"
+        app:layout_constraintTop_toTopOf="@+id/textAddAdjective"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/addSubstantivButt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="0dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="8dp"
+        android:onClick="addSubstantivToList"
+        android:text="Add"
+        app:layout_constraintBottom_toBottomOf="@+id/textAddNoun"
+        app:layout_constraintLeft_toRightOf="@+id/textAddNoun"
+        app:layout_constraintTop_toTopOf="@+id/textAddNoun"
+        app:layout_constraintVertical_bias="0.888" />
 
     <Button
         android:id="@+id/backButton"
@@ -58,64 +83,7 @@
         android:text="Back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        tools:layout_editor_absoluteY="510dp"
-        tools:layout_editor_absoluteX="236dp" />
+        tools:layout_editor_absoluteX="236dp"
+        tools:layout_editor_absoluteY="510dp" />
 
-    <Button
-        android:id="@+id/addMeanName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="13dp"
-        android:layout_marginTop="0dp"
-        android:text="Add"
-        app:layout_constraintBottom_toBottomOf="@+id/textAddAdjective"
-        app:layout_constraintLeft_toRightOf="@+id/textAddAdjective"
-        app:layout_constraintTop_toTopOf="@+id/textAddAdjective"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/addSubstantiv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="0dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="8dp"
-        android:text="Add"
-        app:layout_constraintBottom_toBottomOf="@+id/textAddName"
-        app:layout_constraintLeft_toRightOf="@+id/textAddName"
-        app:layout_constraintTop_toTopOf="@+id/textAddName"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <Button
-        android:id="@+id/addSubjective"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="0dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="8dp"
-        android:onClick="addSubstantivButt"
-        android:text="Add"
-        app:layout_constraintBottom_toBottomOf="@+id/textAddSubjective"
-        app:layout_constraintLeft_toRightOf="@+id/textAddSubjective"
-        app:layout_constraintTop_toTopOf="@+id/textAddSubjective"
-        app:layout_constraintVertical_bias="0.888" />
-
-    <EditText
-        android:id="@+id/textAddSubjective"
-        android:layout_width="239dp"
-        android:layout_height="47dp"
-        android:layout_marginBottom="179dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Add Subjective:"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.162"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textAddAdjective"
-        app:layout_constraintVertical_bias="0.08" />
 </android.support.constraint.ConstraintLayout>

@@ -5,28 +5,57 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import static com.example.deltager.pointlessclicker.insultGenerator.adjective;
+import static com.example.deltager.pointlessclicker.insultGenerator.substantiv;
 
 public class menuActivity extends AppCompatActivity {
 
-    public Button backButton;
-    public TextView addName;
+    public Button   backButton;
     public TextView addAdjective;
+    public TextView addSubstantiv;
+    public Button   addAdjectiveButton;
+    public Button   addSubstantivButton;
+    public Toast    toast;
+    public String   action;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        backButton = (Button)findViewById(R.id.backButton);
-        addName = (TextView)findViewById(R.id.textAddAdjective);
-        addAdjective = (TextView)findViewById(R.id.textAddName);
+        backButton          = (Button)  findViewById(R.id.backButton);
+        addSubstantiv       = (TextView)findViewById(R.id.textAddNoun);
+        addAdjective        = (TextView)findViewById(R.id.textAddAdjective);
+        addAdjectiveButton  = (Button)  findViewById(R.id.addAdjectiveButt);
+        addSubstantivButton = (Button)  findViewById(R.id.addSubstantivButt);
+    }
+
+    public void addAdjectiveToList(View view)
+    {
+        String newAdjective = addAdjective.getText().toString();
+        adjective.add(newAdjective + " ");
+        action = newAdjective + " has been added to the dictionary";
+        toast = Toast.makeText(this, action, Toast.LENGTH_SHORT);
+        toast.show();
+        addAdjective.setText("");
+    }
+
+    public void addSubstantivToList(View view)
+    {
+        String newSubstantiv = addSubstantiv.getText().toString();
+        substantiv.add(newSubstantiv + " ");
+        action = newSubstantiv + " has been added to the dictionary";
+        toast = Toast.makeText(this, action, Toast.LENGTH_SHORT);
+        toast.show();
+        addSubstantiv.setText("");
     }
 
     public void back(View view) {
         finish();
     }
 
-    public void addSubstantivButt (View view){
 
-    }
 }
