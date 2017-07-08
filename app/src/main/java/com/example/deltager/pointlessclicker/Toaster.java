@@ -20,7 +20,7 @@ public class Toaster {
 
     public static int genRandomNum()   // Generate random number
     {
-        int randomNum = (int) (Math.random() * 1000000000);
+        int randomNum = (int) (Math.random() * 10000000);
         return randomNum;
     }
 

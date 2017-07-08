@@ -27,29 +27,29 @@ public class insultGenerator {
     static ArrayList<String> startSentence = new ArrayList<String>();
 
     static {
-        startSentence.add("You look like ");
-        startSentence.add("You smell of ");
-        startSentence.add("Your mother is ");
-        startSentence.add("Your house smells of ");
-        startSentence.add("Did you know that your girlfriend looks like ");
-        startSentence.add("Please, just leave me alone. I don't want to talk to ");
-        startSentence.add("God, go away, I don't want to be seen with ");
-        startSentence.add("Your room probably looks like ");
-        startSentence.add("Your right foot smells like ");
-        startSentence.add("I bet you run like ");
-        startSentence.add("You avoid responsibilities like ");
-        startSentence.add("You act like ");
-        startSentence.add("You cut grass like ");
-        startSentence.add("You eat like ");
-        startSentence.add("You sleep like ");
-        startSentence.add("I bet you make love like ");
-        startSentence.add("You click like ");
-        startSentence.add("You kiss like ");
-        startSentence.add("You program code like ");
-        startSentence.add("Your dog probably eats ");
-        startSentence.add("I bet your cat likes licking ");
-        startSentence.add("Your planning is just as bad as ");
-        startSentence.add("OH yeah, click me harder! OH, daddy, click me like ");
+        startSentence.add("You look like");
+        startSentence.add("You smell of");
+        startSentence.add("Your mother is");
+        startSentence.add("Your house smells of");
+        startSentence.add("Did you know that your loved one looks like");
+        startSentence.add("Please, just leave me alone. I don't want to talk to");
+        startSentence.add("God, go away, I don't want to be seen with");
+        startSentence.add("Your room probably looks like");
+        startSentence.add("Your right foot smells like");
+        startSentence.add("I bet you run like");
+        startSentence.add("You avoid responsibilities like");
+        startSentence.add("You act like");
+        startSentence.add("You cut grass like");
+        startSentence.add("You eat like");
+        startSentence.add("You sleep like");
+        startSentence.add("I bet you make love like");
+        startSentence.add("You click like");
+        startSentence.add("You kiss like");
+        startSentence.add("You program code like");
+        startSentence.add("Your dog probably eats");
+        startSentence.add("I bet your cat likes licking");
+        startSentence.add("Your planning is just as bad as");
+        startSentence.add("OH yeah, click me harder! OH, daddy, click me like");
     }
 
     public String getRandomStartSentence() {
@@ -60,29 +60,29 @@ public class insultGenerator {
     static ArrayList<String> adjective = new ArrayList<String>();
 
     static {
-        adjective.add("a fat ");
-        adjective.add("an ugly ");
-        adjective.add("a smelly ");
-        adjective.add("a useless ");
-        adjective.add("an ignorant ");
-        adjective.add("a sloppy ");
-        adjective.add("a disastrous ");
-        adjective.add("a lazy ");
-        adjective.add("a boring ");
-        adjective.add("an retarded ");
-        adjective.add("a weird looking ");
-        adjective.add("an awkward ");
-        adjective.add("a bossy ");
-        adjective.add("a compulsive ");
-        adjective.add("a fussy ");
-        adjective.add("a gullible ");
-        adjective.add("an irresponsible ");
-        adjective.add("a moody ");
-        adjective.add("a narrow-minded ");
-        adjective.add("an overemotional ");
-        adjective.add("a sarcastic ");
-        adjective.add("an unreliable ");
-        adjective.add("a moist ");
+        adjective.add("a fat");
+        adjective.add("an ugly");
+        adjective.add("a smelly");
+        adjective.add("a useless");
+        adjective.add("an ignorant");
+        adjective.add("a sloppy");
+        adjective.add("a disastrous");
+        adjective.add("a lazy");
+        adjective.add("a boring");
+        adjective.add("an retarded");
+        adjective.add("a weird looking");
+        adjective.add("an awkward");
+        adjective.add("a bossy");
+        adjective.add("a compulsive");
+        adjective.add("a fussy");
+        adjective.add("a gullible");
+        adjective.add("an irresponsible");
+        adjective.add("a moody");
+        adjective.add("a narrow-minded");
+        adjective.add("an overemotional");
+        adjective.add("a sarcastic");
+        adjective.add("an unreliable");
+        adjective.add("a moist");
     }
 
     public String getRandomAdjective() {
@@ -119,7 +119,6 @@ public class insultGenerator {
         substantiv.add("cupcake");
         substantiv.add("doodledood");
         substantiv.add("Harry Potter looking fellow");
-
     }
 
     public String getRandomSubstantiv() {
@@ -146,15 +145,13 @@ public class insultGenerator {
             }
             chanceadd *= 1.25;
 
-            String insult = getRandomStartSentence() + getRandomAdjective() + getRandomSubstantiv();
+            String insult = getRandomStartSentence() + " " + getRandomAdjective() + " " + getRandomSubstantiv();
             //System.out.println(insult);
             return insult;
         }
-
     }
 
-
-    public void addSubstantiv(String addedSubstantiv) {
+        public void addSubstantiv(String addedSubstantiv) {
         // when user writes
         // add string X to Arraylist
         substantiv.add(addedSubstantiv);
@@ -175,6 +172,5 @@ public class insultGenerator {
         System.out.println(name);
         return name;
     }
-
 
 }
