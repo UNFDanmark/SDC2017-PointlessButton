@@ -13,7 +13,7 @@ public class Toaster {
     public double chance = 1;
     public Toast toast;
 
-    public Toaster (insultGenerator insult) {
+    public Toaster(insultGenerator insult) {
         this.insult = insult;
     }
 
@@ -27,14 +27,21 @@ public class Toaster {
 
     public void makeToast(MainActivity activity) {
 
-
         if (genRandomNum() < 100 * chance) { // make 100 for best use
             if (toast != null) {
                 toast.cancel();
             }
-            String toastText = insult.getRandomInsult();
-            System.out.println(toastText);
-            toast = Toast.makeText(activity, toastText, Toast.LENGTH_LONG);
+            if (genRandomNum() < 15 * chance) {
+                String toastTextContact = insult.getRandomContact();
+                toast = Toast.makeText(activity, toastTextContact, Toast.LENGTH_LONG);
+
+
+            } else {
+                String toastText = insult.getRandomInsult();
+                System.out.println(toastText);
+                toast = Toast.makeText(activity, toastText, Toast.LENGTH_LONG);
+            }
+
             toast.show();
             toast.show();
             toast.show();

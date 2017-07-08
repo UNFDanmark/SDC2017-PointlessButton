@@ -31,12 +31,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         red = (ImageButton) findViewById(R.id.redButt);     // Path to layout objects
-
         mute = (ImageButton) findViewById(R.id.soundMute);
         menu = (ImageButton) findViewById(R.id.menuButt);
         counter = (TextView) findViewById(R.id.clickText);
 
-        //
         insult   =  new insultGenerator(getApplicationContext());
         toaster  =  new Toaster(insult);
 

@@ -16,12 +16,13 @@ public class insultGenerator {
     //Hent context. Skal bruges i getContact
     private Context context;
 
-    public insultGenerator(Context context){
+    public insultGenerator(Context context) {
         this.context = context;
     }
 
     public Boolean onetime = false;
     public double chanceadd = 1;
+
 
     static ArrayList<String> startSentence = new ArrayList<String>();
 
@@ -42,9 +43,9 @@ public class insultGenerator {
         startSentence.add("You eat like ");
         startSentence.add("You sleep like ");
         startSentence.add("I bet you make love like ");
-        startSentence.add("You hit like ");
+        startSentence.add("You click like ");
         startSentence.add("You kiss like ");
-        startSentence.add("You Program code like ");
+        startSentence.add("You program code like ");
         startSentence.add("Your dog probably eats ");
         startSentence.add("I bet your cat likes licking ");
         startSentence.add("Your planning is just as bad as ");
@@ -118,7 +119,6 @@ public class insultGenerator {
         substantiv.add("cupcake");
         substantiv.add("doodledood");
         substantiv.add("Harry Potter looking fellow");
-
     }
 
     public String getRandomSubstantiv() {
@@ -146,6 +146,7 @@ public class insultGenerator {
             chanceadd *= 1.25;
 
             String insult = getRandomStartSentence() + getRandomAdjective() + getRandomSubstantiv();
+            //System.out.println(insult);
             return insult;
         }
 
@@ -157,15 +158,21 @@ public class insultGenerator {
         // add string X to Arraylist
         substantiv.add(addedSubstantiv);
 
-
     }
 
     public String getRandomContact() {
         Cursor managedCursor = context.getContentResolver().query(ContactsContract.Contacts.CONTENT_URI, null, null, null, null);
         int size = managedCursor.getCount();
-        String contactName = "contactName";
+        int index = (int) (Math.random() * size);
+        String name;
 
-        return contactName;
+        if (size > 0) {
+            managedCursor.moveToPosition(index);
+            name = "How long since you've talked to " + managedCursor.getString(managedCursor.getColumnIndex(ContactsContract.PhoneLookup.DISPLAY_NAME));
+        } else
+            name = "Wauw, you've got no contacts, go get some friends";
+        System.out.println(name);
+        return name;
     }
 
 
