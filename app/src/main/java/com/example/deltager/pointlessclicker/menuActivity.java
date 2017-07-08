@@ -55,6 +55,4 @@ public class menuActivity extends AppCompatActivity {
     public void back(View view) {
         finish();
     }
-
-
 }
