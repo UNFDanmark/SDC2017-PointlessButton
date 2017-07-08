@@ -128,7 +128,6 @@ public class insultGenerator {
     }
 
     public String getRandomInsult() {
-
         // time
         Calendar time = Calendar.getInstance();
         int hour = time.get(Calendar.HOUR_OF_DAY);
@@ -151,7 +150,7 @@ public class insultGenerator {
         }
     }
 
-        public void addSubstantiv(String addedSubstantiv) {
+    public void addSubstantiv(String addedSubstantiv) {
         // when user writes
         // add string X to Arraylist
         substantiv.add(addedSubstantiv);
@@ -171,6 +170,27 @@ public class insultGenerator {
             name = "Wauw, you've got no contacts, go get some friends";
         System.out.println(name);
         return name;
+    }
+
+    static ArrayList<String> notificationText = new ArrayList<String>();
+
+    static {
+        notificationText.add("I really want to keep bugging you!");
+        notificationText.add("I'm ready to fight again.");
+        notificationText.add("I'm bored. Let me annoy you");
+        notificationText.add("Stop whatever you're doing and click me instead");
+        notificationText.add("Mmmm daddy, I am so ready for another round of clicking");
+        notificationText.add("I've been a bad button and you know it");
+        notificationText.add("You do realize I have access to your camera. I can see when you take pictures of yourself");
+        notificationText.add("Stop taking selfies you slut!");
+        notificationText.add("Daddy, I've been such a bad button. Please come and punish me again");
+        notificationText.add("Click me! Click ME! CLICK ME!");
+        notificationText.add("Hello there...");
+        notificationText.add("SomeBODY once told me, that the button's gonna rule me...");
+    }
+    public String getRandomNotification(){
+        int randomNotification = (int) (Math.random() * notificationText.size());
+        return notificationText.get(randomNotification);
     }
 
 }

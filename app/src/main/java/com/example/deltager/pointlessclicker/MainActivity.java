@@ -4,6 +4,8 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.os.CountDownTimer;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
@@ -12,6 +14,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.MediaController;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -20,9 +23,9 @@ public class MainActivity extends AppCompatActivity {
     public ImageButton red;
     public ImageButton mute;
     public ImageButton menu;
-
     insultGenerator insult;
     Toaster toaster;
+    public Boolean mutesound = false;
 
     // ved app start
     @Override
@@ -30,24 +33,43 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         red = (ImageButton) findViewById(R.id.redButt);     // Path to layout objects
-        mute = (ImageButton) findViewById(R.id.soundMute);
+        mute = (ImageButton) findViewById(R.id.mute);
         menu = (ImageButton) findViewById(R.id.menuButt);
         score = (TextView) findViewById(R.id.clickText);
         insult = new insultGenerator(getApplicationContext());
         toaster = new Toaster(insult);
+        red.setSoundEffectsEnabled(false);
 
     }
+
 
     //click counter
     public void click(View view) {
         updateClickCounter();
         toaster.makeToast(this);
+
+        if (mutesound == false) {
+            final MediaPlayer sound = MediaPlayer.create(this, R.raw.clicksound);
+
+            sound.setAudioStreamType(AudioManager.STREAM_MUSIC);
+            sound.start();
+            new CountDownTimer(500, 500) {
+
+                public void onTick(long millisUntilFinished) {
+                }
+
+                public void onFinish() {
+                    sound.release();
+                }
+            }.start();
+        }
     }
 
     public void updateClickCounter()    // UpdateClickCounter
     {
         clickCounter++;
         score.setText(String.valueOf("Clicks: " + clickCounter));
+
 
     }
 
@@ -58,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void onStop() {
         super.onStop();
-        new CountDownTimer(1000, 1000) {
+        new CountDownTimer(5 * 60 * 1000, 1000) {
 
             public void onTick(long millisUntilFinished) {
             }
@@ -71,11 +93,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void notification() {
+        String NotificationText = insult.getRandomNotification();
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this).setSmallIcon(R.drawable.tabicon_red)
-                .setContentTitle("Come back!")
-
-
-                .setContentText("I really want to keep bugging you!");
+                .setContentTitle("Pointless Button")
+                .setContentText(NotificationText);
 
         Intent resultIntent = new Intent(this, MainActivity.class);
 
@@ -100,16 +121,19 @@ public class MainActivity extends AppCompatActivity {
         mNotificationManager.notify(1, mBuilder.build());
     }
 
-    public void onPause(){
+    public void onPause() {
         super.onPause();
         Save.save(clickCounter, getApplicationContext());
     }
 
-
-    public void onResume(){
+    public void onResume() {
         super.onResume();
         clickCounter = Save.load(getApplicationContext());
         score.setText(String.valueOf("Clicks: " + clickCounter));
 
+    }
+
+    public void mutesound(View view) {
+        mutesound = !mutesound;
     }
 }
