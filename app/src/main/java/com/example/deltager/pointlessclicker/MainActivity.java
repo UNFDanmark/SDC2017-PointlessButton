@@ -22,8 +22,8 @@ public class MainActivity extends AppCompatActivity {
     public ImageButton mute;
     public ImageButton menu;
 
-
-    Toaster toaster = new Toaster();
+    insultGenerator insult;
+    Toaster toaster;
 
     // ved app start
     @Override
@@ -36,25 +36,22 @@ public class MainActivity extends AppCompatActivity {
         menu = (ImageButton) findViewById(R.id.menuButt);
         counter = (TextView) findViewById(R.id.clickText);
 
+        //
+        insult   =  new insultGenerator(getApplicationContext());
+        toaster  =  new Toaster(insult);
+
     }
 
     //click counter
     public void click(View view) {
         updateClickCounter();
         toaster.makeToast(this);
-
-
-        // System.out.println(hour);    TEST AF TID
     }
 
     public void updateClickCounter()    // UpdateClickCounter
     {
         clickCounter++;
         counter.setText("Clicks: " + clickCounter);
-    }
-
-    public void updateSoundSetting() {
-
     }
 
     public void interactMenu(View view) {

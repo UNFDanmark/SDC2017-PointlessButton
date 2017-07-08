@@ -1,5 +1,8 @@
 package com.example.deltager.pointlessclicker;
 
+import android.content.Context;
+import android.database.Cursor;
+import android.provider.ContactsContract;
 import android.widget.EditText;
 
 import java.util.ArrayList;
@@ -10,10 +13,15 @@ import java.util.Calendar;
  */
 
 public class insultGenerator {
+    //Hent context. Skal bruges i getContact
+    private Context context;
+
+    public insultGenerator(Context context){
+        this.context = context;
+    }
 
     public Boolean onetime = false;
     public double chanceadd = 1;
-
 
     static ArrayList<String> startSentence = new ArrayList<String>();
 
@@ -73,6 +81,7 @@ public class insultGenerator {
         adjective.add("an overemotional ");
         adjective.add("a sarcastic ");
         adjective.add("an unreliable ");
+        adjective.add("a moist ");
     }
 
     public String getRandomAdjective() {
@@ -88,7 +97,7 @@ public class insultGenerator {
         substantiv.add("washing machine");
         substantiv.add("dishwasher");
         substantiv.add("monkey");
-        substantiv.add("son of a lazy, yet delightful woman");
+        substantiv.add("lazy, yet delightful woman");
         substantiv.add("idiot!");
         substantiv.add("retard!");
         substantiv.add("soap gobbler");
@@ -151,15 +160,13 @@ public class insultGenerator {
 
     }
 
-   /* public String getContact(MainActivity activity) {
-        Cursor managedCursor = getContentResolver().query(ContactsContract.Contacts.CONTENT_URI, null, null, null, null);
+    public String getRandomContact() {
+        Cursor managedCursor = context.getContentResolver().query(ContactsContract.Contacts.CONTENT_URI, null, null, null, null);
         int size = managedCursor.getCount();
-
-
         String contactName = "contactName";
 
         return contactName;
-    }*/
+    }
 
 
 }

@@ -41,6 +41,7 @@ public class menuActivity extends AppCompatActivity {
         toast = Toast.makeText(this, action, Toast.LENGTH_SHORT);
         toast.show();
         addAdjective.setText("");
+        System.out.println(adjective);
     }
 
     public void addSubstantivToList(View view)
@@ -51,6 +52,7 @@ public class menuActivity extends AppCompatActivity {
         toast = Toast.makeText(this, action, Toast.LENGTH_SHORT);
         toast.show();
         addSubstantiv.setText("");
+        System.out.println(substantiv);
     }
 
     public void back(View view) {
