@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void onStop() {
         super.onStop();
-        new CountDownTimer(30*60*1000, 1000) {
+        new CountDownTimer(1000, 1000) {
 
             public void onTick(long millisUntilFinished) {
             }
@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void notification() {
-        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this).setSmallIcon(R.drawable.red1)
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this).setSmallIcon(R.drawable.tabicon_red)
                 .setContentTitle("Come back!")
 
 
