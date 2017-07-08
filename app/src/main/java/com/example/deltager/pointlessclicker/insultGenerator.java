@@ -119,6 +119,7 @@ public class insultGenerator {
         substantiv.add("cupcake");
         substantiv.add("doodledood");
         substantiv.add("Harry Potter looking fellow");
+
     }
 
     public String getRandomSubstantiv() {

@@ -20,7 +20,7 @@ public class Toaster {
 
     public static int genRandomNum()   // Generate random number
     {
-        int randomNum = (int) (Math.random() * 1000000);
+        int randomNum = (int) (Math.random() * 1000000000);
         return randomNum;
     }
 
@@ -34,8 +34,6 @@ public class Toaster {
             if (genRandomNum() < 15 * chance) {
                 String toastTextContact = insult.getRandomContact();
                 toast = Toast.makeText(activity, toastTextContact, Toast.LENGTH_LONG);
-
-
             } else {
                 String toastText = insult.getRandomInsult();
                 System.out.println(toastText);
