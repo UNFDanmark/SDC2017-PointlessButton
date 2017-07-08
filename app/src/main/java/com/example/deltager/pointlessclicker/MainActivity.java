@@ -1,23 +1,16 @@
 package com.example.deltager.pointlessclicker;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import java.util.Calendar;
-import java.util.Random;
-import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
-    private long clickCounter = 0;  // Variables
-    public TextView counter;
+    public long clickCounter;  // Variables
+    public static TextView score;
     public ImageButton red;
     public ImageButton mute;
     public ImageButton menu;
@@ -33,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         red = (ImageButton) findViewById(R.id.redButt);     // Path to layout objects
         mute = (ImageButton) findViewById(R.id.soundMute);
         menu = (ImageButton) findViewById(R.id.menuButt);
-        counter = (TextView) findViewById(R.id.clickText);
+        score = (TextView) findViewById(R.id.clickText);
 
         insult   =  new insultGenerator(getApplicationContext());
         toaster  =  new Toaster(insult);
@@ -49,7 +42,8 @@ public class MainActivity extends AppCompatActivity {
     public void updateClickCounter()    // UpdateClickCounter
     {
         clickCounter++;
-        counter.setText("Clicks: " + clickCounter);
+        score.setText(String.valueOf("Clicks: " + clickCounter));
+
     }
 
     public void interactMenu(View view) {
@@ -57,5 +51,16 @@ public class MainActivity extends AppCompatActivity {
         startActivity(menu);
     }
 
+    public void onPause(){
+        super.onPause();
+        Save.save(clickCounter, getApplicationContext());
+    }
 
+
+    public void onResume(){
+        super.onResume();
+        clickCounter = Save.load(getApplicationContext());
+        score.setText(String.valueOf("Clicks: " + clickCounter));
+
+    }
 }
