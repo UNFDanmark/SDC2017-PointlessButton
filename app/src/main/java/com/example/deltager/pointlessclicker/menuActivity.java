@@ -56,6 +56,13 @@ public class menuActivity extends AppCompatActivity {
     {
         long clickCounter = 0;
         Save.save(clickCounter, getApplicationContext());
+        Context context = getApplicationContext();
+
+        CharSequence text = "Your clickes has been reset";
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
     }
 
     public void back(View view) {
