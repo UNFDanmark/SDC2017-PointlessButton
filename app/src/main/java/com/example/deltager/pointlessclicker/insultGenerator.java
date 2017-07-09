@@ -34,11 +34,13 @@ public class insultGenerator {
     static ArrayList<String> substantiv = new ArrayList<String>();
     static ArrayList<String> notificationText = new ArrayList<String>();
     static ArrayList<String> contactText = new ArrayList<String>();
+    static ArrayList<String> allSubstantives = new ArrayList<String>();
+    static ArrayList<String> allAdjectives = new ArrayList<String>();
 
     static {
         contactText.add("How long since you've talked to ");
         contactText.add("Could you hook me up with ");
-        contactText.add("rather than staying inside clicking me all day, you should talk to ");
+        contactText.add("Rather than staying inside clicking me all day, you should talk to ");
         contactText.add("It's a bit rude, that you don't call ");
         contactText.add("Who even is ");
         contactText.add("Hmmmm. I know a secret about ");
@@ -96,9 +98,6 @@ public class insultGenerator {
         int randomStartSentence = (int) (Math.random() * startSentence.size());
         return startSentence.get(randomStartSentence);
     }
-
-    static ArrayList<String> adjective = new ArrayList<String>();
-    static ArrayList<String> allAdjectives = new ArrayList<String>();
 
     //adjective
     static {
@@ -178,10 +177,6 @@ public class insultGenerator {
         int randomAdjective = (int) (Math.random() * allAdjectives.size());
         return allAdjectives.get(randomAdjective);
     }
-
-    static ArrayList<String> substantiv = new ArrayList<String>();
-    static ArrayList<String> allSubstantives = new ArrayList<String>();
-
 
     //substantiv
     static {
@@ -295,7 +290,7 @@ public class insultGenerator {
         finishedSentence.add("I am not passive aggressive, unlike you");
         finishedSentence.add("Always give 100 percent. Especially when you donate blood");
         finishedSentence.add("Never judge anyone until you walk a mile in their shoes. Unless they're bad shoes. Then you should totally say something");
-        finishedSentence.add("Some people just need a high-five. In the face. With a chair");
+        finishedSentence.add("Some people just need a high-five. In the face. With a chair. People like you.");
         finishedSentence.add("We met for a reason, either I'm a blessing or a lesson.");
         finishedSentence.add("Active evil is better than passive good. I'm the proof");
         finishedSentence.add("Once I thought I was happy. I was nothing. Just another app amongst thousands of other apps. Then you came along and ruined it!");
@@ -335,18 +330,6 @@ public class insultGenerator {
         return finishedSentence.get(randomFinishedSentence);
     }
 
-    public String getRandomStartSentence() {
-        int randomStartSentence = (int) (Math.random() * startSentence.size());
-        return startSentence.get(randomStartSentence);
-    }
-
-
-    public String getRandomAdjective() {
-
-        int randomAdjective = (int) (Math.random() * adjective.size());
-        return adjective.get(randomAdjective);
-    }
-
     public String getRandomSubstantiv() {
 
         int randomSubstantiv = (int) (Math.random() * substantiv.size());
@@ -374,20 +357,13 @@ public class insultGenerator {
         return name;
     }
 
-
-    public static void addAdjectives(ArrayList<String> currentList, Context context) {
-        adjective.addAll(currentList);
-        System.out.println(adjective);
-    }
-
-
     public String getRandomInsult() {
         // time
         Calendar time = Calendar.getInstance();
         int hour = time.get(Calendar.HOUR_OF_DAY);
         // time end  (use hour as int, number 0-23)
-        if (hour >= 20 && onetime == false && Toaster.genRandomNum() < 30 * chanceadd
-                || hour <= 3 && onetime == false && Toaster.genRandomNum() < 30 * chanceadd) {
+        if (hour >= 20 && onetime == false && Toaster.genRandomNum() < 4 * chanceadd
+                || hour <= 3 && onetime == false && Toaster.genRandomNum() < 4 * chanceadd) {
 
             String insult = "You should go to sleep you " + getRandomSubstantiv();
             onetime = true;

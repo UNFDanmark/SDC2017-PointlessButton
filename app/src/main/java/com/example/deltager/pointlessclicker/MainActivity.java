@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public static int genRandomNum() {   // Generate random number{
-        int randomNum = (int) (Math.random() * 200000);    //set to 200000 for best result
+        int randomNum = (int) (Math.random() * 100000);    //set to 100000 for best result
         return randomNum;
     }
 
