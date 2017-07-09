@@ -22,6 +22,8 @@ import android.widget.TextView;
 
 import java.io.IOException;
 
+import static com.example.deltager.pointlessclicker.Save.returnSavedFiles;
+
 public class MainActivity extends AppCompatActivity {
     public long clickCounter;  // Variables
     public static TextView score;
@@ -53,8 +55,8 @@ public class MainActivity extends AppCompatActivity {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_CONTACTS}, 123);
         }
+        insultGenerator.addAdjectives(Save.returnSavedFiles(getApplicationContext()), getApplicationContext());
     }
-
 
     public static int genRandomNum() {   // Generate random number{
         int randomNum = (int) (Math.random() * 1000000);

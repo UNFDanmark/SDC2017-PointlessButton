@@ -12,6 +12,7 @@ import android.widget.Toast;
 //import static com.example.deltager.pointlessclicker.Save.loadAdjectivesList;
 import java.io.IOException;
 
+import static com.example.deltager.pointlessclicker.Save.returnSavedFiles;
 import static com.example.deltager.pointlessclicker.insultGenerator.adjective;
 import static com.example.deltager.pointlessclicker.insultGenerator.substantiv;
 
@@ -45,7 +46,6 @@ public class menuActivity extends AppCompatActivity {
         toast.show();
         addAdjective.setText("");
         Save.saveFiles(Save.returnSavedFiles(getApplicationContext()), newAdjective, getApplicationContext());
-        System.out.println(Save.returnSavedFiles(getApplicationContext()));
     }
     public void addSubstantivToList(View view) {
         String newSubstantiv = addSubstantiv.getText().toString();
@@ -55,6 +55,8 @@ public class menuActivity extends AppCompatActivity {
         toast.show();
         addSubstantiv.setText("");
         System.out.println(substantiv);
+        //Save.saveFiles(Save.returnSavedFilesSub(getApplicationContext()), newAdjective, getApplicationContext());
+        //System.out.println(Save.returnSavedFiles(getApplicationContext()));
     }
 
     public void back(View view) {

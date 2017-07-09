@@ -44,37 +44,7 @@ public class Save {
                 String.valueOf(R.string.preference_file_key), Context.MODE_PRIVATE);
         return sharedPref.getLong("score", 0);
     }
-    /*
 
-    public static void saveAdjective(Set<String> newAdjective,Context context) {
-        ArrayList newAdjectiveList = new ArrayList<String>();
-        SharedPreferences sharedPref = context.getSharedPreferences(
-                String.valueOf(R.string.preference_file_key), Context.MODE_PRIVATE);
-        newAdjective = sharedPref.getStringSet("adjectives", new HashSet<String>());
-        newAdjectiveList.add(newAdjective);
-        SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putStringSet("newAdjectiveList", new HashSet<String>());
-        editor.commit();
-
-
-        //editor.putStringSet("adjectives", adjectives);
-    }
-
-    /*public static ArrayList<String> loadAdjectivesList(Context context) {
-        // Read from shared Preferences
-        SharedPreferences sharedPref = context.getSharedPreferences(
-                String.valueOf(R.string.preference_file_key), Context.MODE_PRIVATE);
-        return new ArrayList<String>(sharedPref.getStringSet("adjectives", new HashSet<String>()));
-    }
-
-    public static ArrayList<String> loadAdjectivesList(Context context) {
-        // Read from shared Preferences
-        SharedPreferences sharedPref = context.getSharedPreferences(
-                String.valueOf(R.string.preference_file_key), Context.MODE_PRIVATE);
-        String newAdjective = sharedPref.getString("newAdjective", null);
-        newAdjectiveList.add(newAdjective);
-
-        return newAdjectiveList; }*/
 
     public static void saveFiles(ArrayList<String> oldAdjectives, String newAdjective, Context context) throws IOException {
         oldAdjectives.add(newAdjective);
@@ -84,18 +54,39 @@ public class Save {
         save.close();
     }
 
-    public static ArrayList<String> returnSavedFiles(Context context) throws IOException, ClassNotFoundException {
+    public static ArrayList<String> returnSavedFiles(Context context) {
         try {
             FileInputStream saveFile = new FileInputStream(context.getFilesDir() + "/saveFile.sav");
             ObjectInputStream restore = new ObjectInputStream(saveFile);
             ArrayList<String> savedAdjectives = (ArrayList<String>) restore.readObject();
             restore.close();
             return savedAdjectives;
-        } catch (EOFException e) {
+        } catch (Exception e) {
             return new ArrayList<String>();
         }
 
     }
+
+//    public static void saveFilesSub(ArrayList<String> oldSub, String newSub, Context context) throws IOException {
+//        oldSub.add(newSub);
+//        FileOutputStream saveFile = new FileOutputStream(context.getFilesDir() + "/saveFile2.sav");
+//        ObjectOutputStream save = new ObjectOutputStream(saveFile);
+//        save.writeObject(oldSub);
+//        save.close();
+//    }
+//
+//    public static ArrayList<String> returnSavedFilesSub(Context context) throws IOException, ClassNotFoundException {
+//        try {
+//            FileInputStream saveFile = new FileInputStream(context.getFilesDir() + "/saveFile2.sav");
+//            ObjectInputStream restore = new ObjectInputStream(saveFile);
+//            ArrayList<String> savedSub = (ArrayList<String>) restore.readObject();
+//            restore.close();
+//            return savedSub;
+//        } catch (EOFException e) {
+//            return new ArrayList<String>();
+//        }
+//
+//    }
 
 
 }
