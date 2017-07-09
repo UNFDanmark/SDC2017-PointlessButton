@@ -1,5 +1,6 @@
 package com.example.deltager.pointlessclicker;
 
+import android.Manifest;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -7,9 +8,11 @@ import android.content.Intent;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.CountDownTimer;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
 import android.content.pm.PackageManager;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -20,33 +23,47 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
     public long clickCounter;  // Variables
     public static TextView score;
+    public
+
+    TextView textInsult;
     public ImageButton red;
     public ImageButton mute;
     public ImageButton menu;
     insultGenerator insult;
     Toaster toaster;
     public Boolean mutesound = false;
+    public double chance = 1;
 
     // ved app start
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        insult = new insultGenerator(getApplicationContext());  //Generates random text
+        toaster = new Toaster(insult);
         red = (ImageButton) findViewById(R.id.redButt);     // Path to layout objects
         mute = (ImageButton) findViewById(R.id.mute);
         menu = (ImageButton) findViewById(R.id.menuButt);
         score = (TextView) findViewById(R.id.clickText);
-        insult = new insultGenerator(getApplicationContext());
-        toaster = new Toaster(insult);
         red.setSoundEffectsEnabled(false);
+        textInsult = (TextView) findViewById(R.id.textInsult);
 
+
+        if (ContextCompat.checkSelfPermission(this,  Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_CONTACTS}, 123);
+        }
     }
 
+
+    public static int genRandomNum() {   // Generate random number{
+        int randomNum = (int) (Math.random() * 100);
+        return randomNum;
+    }
 
     //click counter
     public void click(View view) {
         updateClickCounter();
-        toaster.makeToast(this);
+
 
         if (mutesound == false) {
             final MediaPlayer sound = MediaPlayer.create(this, R.raw.clicksound);
@@ -63,15 +80,36 @@ public class MainActivity extends AppCompatActivity {
                 }
             }.start();
         }
+        if (genRandomNum() < 100 * chance) { // make 100 for best use
+
+            if (genRandomNum() < 10 * chance) { //Chance to get contact
+                String toastTextContact = insult.getRandomContact();
+                textInsult.setText(toastTextContact);
+                chance = 1;
+            } else {
+                String toastText = insult.getRandomInsult();
+                System.out.println(toastText);
+                textInsult.setText(toastText);
+                chance = 1;
+
+            }
+
+        } else {
+            chance *= 1.15;
+            if (chance > 1000) {
+                System.out.println(chance);
+            }
+        }
+
+
     }
 
     public void updateClickCounter()    // UpdateClickCounter
     {
         clickCounter++;
         score.setText(String.valueOf("Clicks: " + clickCounter));
-
-
     }
+
 
     public void interactMenu(View view) {
         Intent menu = new Intent(this, menuActivity.class);
@@ -80,7 +118,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void onStop() {
         super.onStop();
-        new CountDownTimer(5 * 60 * 1000, 1000) {
+
+        int index = (int) (Math.random() * Math.random() * 600);
+        new CountDownTimer(index * 60 * 1000, 1000) {
 
             public void onTick(long millisUntilFinished) {
             }
@@ -88,7 +128,6 @@ public class MainActivity extends AppCompatActivity {
             public void onFinish() {
                 notification();
             }
-
         }.start();
     }
 
@@ -130,10 +169,11 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         clickCounter = Save.load(getApplicationContext());
         score.setText(String.valueOf("Clicks: " + clickCounter));
-
     }
 
     public void mutesound(View view) {
         mutesound = !mutesound;
     }
+
+
 }

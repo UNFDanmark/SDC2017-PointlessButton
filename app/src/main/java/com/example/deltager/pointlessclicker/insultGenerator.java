@@ -158,6 +158,7 @@ public class insultGenerator {
     }
 
     public String getRandomContact() {
+
         Cursor managedCursor = context.getContentResolver().query(ContactsContract.Contacts.CONTENT_URI, null, null, null, null);
         int size = managedCursor.getCount();
         int index = (int) (Math.random() * size);
@@ -179,14 +180,14 @@ public class insultGenerator {
         notificationText.add("I'm ready to fight again.");
         notificationText.add("I'm bored. Let me annoy you");
         notificationText.add("Stop whatever you're doing and click me instead");
-        notificationText.add("Mmmm daddy, I am so ready for another round of clicking");
+        notificationText.add("I am so ready for another round of clicking");
         notificationText.add("I've been a bad button and you know it");
-        notificationText.add("You do realize I have access to your camera. I can see when you take pictures of yourself");
+        notificationText.add("You do realize I have access to your camera");
         notificationText.add("Stop taking selfies you slut!");
-        notificationText.add("Daddy, I've been such a bad button. Please come and punish me again");
+        notificationText.add("Daddy, I've been such a bad button");
         notificationText.add("Click me! Click ME! CLICK ME!");
         notificationText.add("Hello there...");
-        notificationText.add("SomeBODY once told me, that the button's gonna rule me...");
+        notificationText.add("SomeBODY once told me...");
     }
     public String getRandomNotification(){
         int randomNotification = (int) (Math.random() * notificationText.size());
