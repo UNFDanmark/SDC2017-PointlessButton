@@ -115,8 +115,8 @@ public class insultGenerator {
         substantiv.add("soap gobbler");
         substantiv.add("muggle!");
         substantiv.add("piece of cupcake fill, that no one even bothers to check in on. Really, you should go outside");
-        substantiv.add("white piece of slightly rotten bread");
-        substantiv.add("soul sucking dementor from Harry Potter.");
+        substantiv.add(", white piece of slightly rotten bread");
+        substantiv.add(", soul sucking dementor from Harry Potter.");
         substantiv.add("stuck-up, half-witted, scruffy-looking nerf herder!");
         substantiv.add("leather hat!");
         substantiv.add("shroomwad");
@@ -159,7 +159,7 @@ public class insultGenerator {
             }
             chanceadd *= 1.25;
 
-            String insult = getRandomStartSentence() + " " + getRandomAdjective() + ", " + getRandomSubstantiv();
+            String insult = getRandomStartSentence() + " " + getRandomAdjective() + " " + getRandomSubstantiv();
             //System.out.println(insult);
             return insult;
         }

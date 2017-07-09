@@ -58,6 +58,37 @@ public class MainActivity extends AppCompatActivity {
         insultGenerator.addAdjectives(Save.returnSavedFiles(getApplicationContext()), getApplicationContext());
     }
 
+    public void notification() {
+        String NotificationText = insult.getRandomNotification();
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this).setSmallIcon(R.drawable.tabicon_red)
+                .setContentTitle("Pointless Button")
+                .setContentText(NotificationText);
+
+        Intent resultIntent = new Intent(this, MainActivity.class);
+
+        // The stack builder object will contain an artificial back stack for the
+        // started Activity.
+        // This ensures that navigating backward from the Activity leads out of
+        // your application to the Home screen.
+        TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
+        // Adds the back stack for the Intent (but not the Intent itself)
+        stackBuilder.addParentStack(MainActivity.class);
+        // Adds the Intent that starts the Activity to the top of the stack
+        stackBuilder.addNextIntent(resultIntent);
+        PendingIntent resultPendingIntent =
+                stackBuilder.getPendingIntent(
+                        0,
+                        PendingIntent.FLAG_UPDATE_CURRENT
+                );
+        mBuilder.setContentIntent(resultPendingIntent);
+        NotificationManager mNotificationManager =
+                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        // mId allows you to update the notification later on.
+        mNotificationManager.notify(1, mBuilder.build());
+
+
+    }
+
     public static int genRandomNum() {   // Generate random number{
         int randomNum = (int) (Math.random() * 1000000);
         return randomNum;
@@ -136,34 +167,6 @@ public class MainActivity extends AppCompatActivity {
         }.start();
     }
 
-    public void notification() {
-        String NotificationText = insult.getRandomNotification();
-        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this).setSmallIcon(R.drawable.tabicon_red)
-                .setContentTitle("Pointless Button")
-                .setContentText(NotificationText);
-
-        Intent resultIntent = new Intent(this, MainActivity.class);
-
-        // The stack builder object will contain an artificial back stack for the
-        // started Activity.
-        // This ensures that navigating backward from the Activity leads out of
-        // your application to the Home screen.
-        TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
-        // Adds the back stack for the Intent (but not the Intent itself)
-        stackBuilder.addParentStack(MainActivity.class);
-        // Adds the Intent that starts the Activity to the top of the stack
-        stackBuilder.addNextIntent(resultIntent);
-        PendingIntent resultPendingIntent =
-                stackBuilder.getPendingIntent(
-                        0,
-                        PendingIntent.FLAG_UPDATE_CURRENT
-                );
-        mBuilder.setContentIntent(resultPendingIntent);
-        NotificationManager mNotificationManager =
-                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        // mId allows you to update the notification later on.
-        mNotificationManager.notify(1, mBuilder.build());
-    }
 
     public void onPause() {
         super.onPause();
@@ -174,6 +177,8 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         clickCounter = Save.load(getApplicationContext());
         score.setText(String.valueOf("Clicks: " + clickCounter));
+        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        notificationManager.cancel(1);
 
     }
 
