@@ -18,15 +18,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.MediaController;
 import android.widget.TextView;
+
+import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
     public long clickCounter;  // Variables
     public static TextView score;
-    public
-
-    TextView textInsult;
+    public TextView textInsult;
     public ImageButton red;
     public ImageButton mute;
     public ImageButton menu;
@@ -63,7 +62,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //click counter
-    public void click(View view) {
+    public void click(View view) throws IOException, ClassNotFoundException {
+//        System.out.println(Save.returnSavedFiles(getApplicationContext()));
         updateClickCounter();
 
 
@@ -111,8 +111,8 @@ public class MainActivity extends AppCompatActivity {
     {
         clickCounter++;
         score.setText(String.valueOf("Clicks: " + clickCounter));
+        Save.save(clickCounter, getApplicationContext());
     }
-
 
     public void interactMenu(View view) {
         Intent menu = new Intent(this, menuActivity.class);
@@ -172,6 +172,7 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         clickCounter = Save.load(getApplicationContext());
         score.setText(String.valueOf("Clicks: " + clickCounter));
+
     }
 
     public void mutesound(View view) {

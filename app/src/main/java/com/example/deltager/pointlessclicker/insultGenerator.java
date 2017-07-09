@@ -83,7 +83,11 @@ public class insultGenerator {
         adjective.add("a sarcastic");
         adjective.add("an unreliable");
         adjective.add("a moist");
+
+
     }
+
+
 
     public String getRandomAdjective() {
 
@@ -119,6 +123,10 @@ public class insultGenerator {
         substantiv.add("cupcake");
         substantiv.add("doodledood");
         substantiv.add("Harry Potter looking fellow");
+    }
+
+    public void updateAdjectives(){
+        //substantiv.add()
     }
 
     public String getRandomSubstantiv() {
@@ -193,5 +201,6 @@ public class insultGenerator {
         int randomNotification = (int) (Math.random() * notificationText.size());
         return notificationText.get(randomNotification);
     }
+
 
 }
