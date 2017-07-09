@@ -1,11 +1,16 @@
 package com.example.deltager.pointlessclicker;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+//import static com.example.deltager.pointlessclicker.Save.loadAdjectivesList;
+//import static com.example.deltager.pointlessclicker.Save.loadAdjectivesList;
+import java.io.IOException;
 
 import static com.example.deltager.pointlessclicker.insultGenerator.adjective;
 import static com.example.deltager.pointlessclicker.insultGenerator.substantiv;
@@ -32,19 +37,19 @@ public class menuActivity extends AppCompatActivity {
         addSubstantivButton = (Button) findViewById(R.id.addSubstantivButt);
     }
 
-    public void addAdjectiveToList(View view) {
+    public void addAdjectiveToList(View view) throws IOException, ClassNotFoundException {
         String newAdjective = addAdjective.getText().toString();
-        adjective.add(newAdjective + " ");
+        //adjective.add(newAdjective);
         action = newAdjective + " has been added to the dictionary";
         toast = Toast.makeText(this, action, Toast.LENGTH_SHORT);
         toast.show();
         addAdjective.setText("");
-        System.out.println(adjective);
+        Save.saveFiles(Save.returnSavedFiles(getApplicationContext()), newAdjective, getApplicationContext());
+        System.out.println(Save.returnSavedFiles(getApplicationContext()));
     }
-
     public void addSubstantivToList(View view) {
         String newSubstantiv = addSubstantiv.getText().toString();
-        substantiv.add(newSubstantiv + " ");
+        substantiv.add(newSubstantiv);
         action = newSubstantiv + " has been added to the dictionary";
         toast = Toast.makeText(this, action, Toast.LENGTH_SHORT);
         toast.show();
@@ -55,4 +60,5 @@ public class menuActivity extends AppCompatActivity {
     public void back(View view) {
         finish();
     }
+
 }
