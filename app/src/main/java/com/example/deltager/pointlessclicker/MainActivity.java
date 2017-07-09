@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public static int genRandomNum() {   // Generate random number{
-        int randomNum = (int) (Math.random() * 1000000);
+        int randomNum = (int) (Math.random() * 200000);    //set to 200000 for best result
         return randomNum;
     }
 
@@ -121,14 +121,19 @@ public class MainActivity extends AppCompatActivity {
             if (genRandomNum() < 10 * chance) { //Chance to get contact
                 String toastTextContact = insult.getRandomContact();
                 textInsult.setText(toastTextContact);
-                chance = 1;
+
+            } else if (genRandomNum() < 5 * chance) {
+                String finishedSentence = insult.getRandomfinishedSentence();
+                textInsult.setText(finishedSentence);
+                System.out.println(textInsult);
+                System.out.println(finishedSentence);
+
             } else {
                 String toastText = insult.getRandomInsult();
                 System.out.println(toastText);
                 textInsult.setText(toastText);
-                chance = 1;
-
             }
+            chance = 1;
 
         } else {
             chance *= 1.15;
@@ -180,10 +185,7 @@ public class MainActivity extends AppCompatActivity {
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.cancel(1);
         insultGenerator.addAdjectives(Save.returnSavedFiles(getApplicationContext()), getApplicationContext());
-        insultGenerator.addAdjectives(Save.returnSavedFiles(getApplicationContext()), getApplicationContext());
         insultGenerator.addSub(Save.returnSavedFilesSub(getApplicationContext()), getApplicationContext());
-
-
     }
 
     public void mutesound(View view) {
