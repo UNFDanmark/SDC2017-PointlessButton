@@ -67,26 +67,27 @@ public class Save {
 
     }
 
-//    public static void saveFilesSub(ArrayList<String> oldSub, String newSub, Context context) throws IOException {
-//        oldSub.add(newSub);
-//        FileOutputStream saveFile = new FileOutputStream(context.getFilesDir() + "/saveFile2.sav");
-//        ObjectOutputStream save = new ObjectOutputStream(saveFile);
-//        save.writeObject(oldSub);
-//        save.close();
-//    }
-//
-//    public static ArrayList<String> returnSavedFilesSub(Context context) throws IOException, ClassNotFoundException {
-//        try {
-//            FileInputStream saveFile = new FileInputStream(context.getFilesDir() + "/saveFile2.sav");
-//            ObjectInputStream restore = new ObjectInputStream(saveFile);
-//            ArrayList<String> savedSub = (ArrayList<String>) restore.readObject();
-//            restore.close();
-//            return savedSub;
-//        } catch (EOFException e) {
-//            return new ArrayList<String>();
-//        }
-//
-//    }
+    public static void saveFilesSub(ArrayList<String> oldSub, String newSub, Context context) throws IOException {
+        oldSub.add(newSub);
+        FileOutputStream saveFile = new FileOutputStream(context.getFilesDir() + "/saveFile2.sav");
+        ObjectOutputStream save = new ObjectOutputStream(saveFile);
+        save.writeObject(oldSub);
+        save.close();
+    }
+
+    public static ArrayList<String> returnSavedFilesSub(Context context){
+        try {
+            FileInputStream saveFile = new FileInputStream(context.getFilesDir() + "/saveFile2.sav");
+            ObjectInputStream restore = new ObjectInputStream(saveFile);
+            ArrayList<String> savedSub = (ArrayList<String>) restore.readObject();
+            restore.close();
+            return savedSub;
+        } catch (Exception e) {
+            return new ArrayList<String>();
+        }
+
+    }
+
 
 
 }

@@ -87,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
         mNotificationManager.notify(1, mBuilder.build());
 
 
+
     }
 
     public static int genRandomNum() {   // Generate random number{
@@ -101,7 +102,6 @@ public class MainActivity extends AppCompatActivity {
 
 
         if (mutesound == false) {
-
             final MediaPlayer sound = MediaPlayer.create(this, R.raw.clicksound);
 
             sound.setAudioStreamType(AudioManager.STREAM_MUSIC);
@@ -180,6 +180,10 @@ public class MainActivity extends AppCompatActivity {
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.cancel(1);
         insultGenerator.addAdjectives(Save.returnSavedFiles(getApplicationContext()), getApplicationContext());
+        insultGenerator.addAdjectives(Save.returnSavedFiles(getApplicationContext()), getApplicationContext());
+        insultGenerator.addSub(Save.returnSavedFilesSub(getApplicationContext()), getApplicationContext());
+
+
     }
 
     public void mutesound(View view) {

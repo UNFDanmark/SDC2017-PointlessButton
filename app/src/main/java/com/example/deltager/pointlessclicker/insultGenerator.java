@@ -138,8 +138,9 @@ public class insultGenerator {
         System.out.println(substantiv);
     }
 
-    public void updateAdjectives(){
-        //substantiv.add()
+    public static void addSub(ArrayList<String> currentList, Context context){
+        substantiv.addAll(currentList);
+        System.out.println(substantiv);
     }
 
     public String getRandomSubstantiv() {
@@ -214,6 +215,7 @@ public class insultGenerator {
         int randomNotification = (int) (Math.random() * notificationText.size());
         return notificationText.get(randomNotification);
     }
+
 
 
 }

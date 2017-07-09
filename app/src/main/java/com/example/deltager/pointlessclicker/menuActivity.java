@@ -47,16 +47,15 @@ public class menuActivity extends AppCompatActivity {
         addAdjective.setText("");
         Save.saveFiles(Save.returnSavedFiles(getApplicationContext()), newAdjective, getApplicationContext());
     }
-    public void addSubstantivToList(View view) {
+    public void addSubstantivToList(View view) throws IOException, ClassNotFoundException {
         String newSubstantiv = addSubstantiv.getText().toString();
         substantiv.add(newSubstantiv);
         action = newSubstantiv + " has been added to the dictionary";
         toast = Toast.makeText(this, action, Toast.LENGTH_SHORT);
         toast.show();
         addSubstantiv.setText("");
-        System.out.println(substantiv);
-        //Save.saveFiles(Save.returnSavedFilesSub(getApplicationContext()), newAdjective, getApplicationContext());
-        //System.out.println(Save.returnSavedFiles(getApplicationContext()));
+        Save.saveFilesSub(Save.returnSavedFilesSub(getApplicationContext()), newSubstantiv, getApplicationContext());
+
     }
 
     public void back(View view) {
