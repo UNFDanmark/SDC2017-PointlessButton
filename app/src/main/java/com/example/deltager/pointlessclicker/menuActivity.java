@@ -7,13 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
-//import static com.example.deltager.pointlessclicker.Save.loadAdjectivesList;
-//import static com.example.deltager.pointlessclicker.Save.loadAdjectivesList;
 import java.io.IOException;
 
-import static com.example.deltager.pointlessclicker.Save.returnSavedFiles;
-import static com.example.deltager.pointlessclicker.insultGenerator.adjective;
 import static com.example.deltager.pointlessclicker.insultGenerator.substantiv;
 
 public class menuActivity extends AppCompatActivity {
@@ -55,7 +50,12 @@ public class menuActivity extends AppCompatActivity {
         toast.show();
         addSubstantiv.setText("");
         Save.saveFilesSub(Save.returnSavedFilesSub(getApplicationContext()), newSubstantiv, getApplicationContext());
+    }
 
+    public void resetClick(View view)
+    {
+        long clickCounter = 0;
+        Save.save(clickCounter, getApplicationContext());
     }
 
     public void back(View view) {

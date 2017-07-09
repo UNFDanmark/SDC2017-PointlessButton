@@ -26,7 +26,7 @@ import static com.example.deltager.pointlessclicker.Save.returnSavedFiles;
 
 public class MainActivity extends AppCompatActivity {
     public long clickCounter;  // Variables
-    public static TextView score;
+    public TextView score;
     public TextView textInsult;
     public ImageButton red;
     public ImageButton mute;
@@ -172,7 +172,6 @@ public class MainActivity extends AppCompatActivity {
         }.start();
     }
 
-
     public void onPause() {
         super.onPause();
         Save.save(clickCounter, getApplicationContext());
@@ -182,6 +181,7 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         clickCounter = Save.load(getApplicationContext());
         score.setText(String.valueOf("Clicks: " + clickCounter));
+
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.cancel(1);
         insultGenerator.addAdjectives(Save.returnSavedFiles(getApplicationContext()), getApplicationContext());

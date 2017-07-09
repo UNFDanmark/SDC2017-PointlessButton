@@ -92,6 +92,14 @@ public class insultGenerator {
 
     }
 
+    public String getRandomStartSentence() {
+        int randomStartSentence = (int) (Math.random() * startSentence.size());
+        return startSentence.get(randomStartSentence);
+    }
+
+    static ArrayList<String> adjective = new ArrayList<String>();
+    static ArrayList<String> allAdjectives = new ArrayList<String>();
+
     //adjective
     static {
         adjective.add("a fat");
@@ -157,6 +165,24 @@ public class insultGenerator {
         adjective.add("a adventurous");
 
     }
+
+    public static void addAdjectives(ArrayList<String> currentList, Context context){
+        allAdjectives.addAll(currentList);
+        allAdjectives.addAll(adjective);
+                System.out.println(allAdjectives);
+    }
+
+
+    public String getRandomAdjective() {
+
+        int randomAdjective = (int) (Math.random() * allAdjectives.size());
+        return allAdjectives.get(randomAdjective);
+    }
+
+    static ArrayList<String> substantiv = new ArrayList<String>();
+    static ArrayList<String> allSubstantives = new ArrayList<String>();
+
+
     //substantiv
     static {
         substantiv.add("lawnmower!");
@@ -231,7 +257,7 @@ public class insultGenerator {
         substantiv.add("gay person, which is totally fine I guess");
         substantiv.add("negaton");
         substantiv.add("loverboy");
-        substantiv.add("softawre developer");
+        substantiv.add("software developer");
         substantiv.add("sticky note");
         substantiv.add("protein bar");
         substantiv.add("trash can");
@@ -240,9 +266,10 @@ public class insultGenerator {
 
     }
 
-    public static void addSub(ArrayList<String> currentList, Context context) {
-        substantiv.addAll(currentList);
-        System.out.println(substantiv);
+    public static void addSub(ArrayList<String> currentList, Context context){
+        allSubstantives.addAll(currentList);
+        allSubstantives.addAll(substantiv);
+
     }
     //NOTIFICATION
     static {
