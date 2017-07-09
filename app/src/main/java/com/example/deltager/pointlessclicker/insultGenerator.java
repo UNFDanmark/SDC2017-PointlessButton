@@ -7,10 +7,14 @@ import android.widget.EditText;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import static com.example.deltager.pointlessclicker.Save.*;
 
 /**
  * Created by deltager on 06-07-17.
  */
+
+
+
 
 public class insultGenerator {
     //Hent context. Skal bruges i getContact
@@ -50,6 +54,7 @@ public class insultGenerator {
         startSentence.add("I bet your cat likes licking");
         startSentence.add("Your planning is just as bad as");
         startSentence.add("OH yeah, click me harder! OH, daddy, click me like");
+
     }
 
     public String getRandomStartSentence() {
@@ -57,10 +62,10 @@ public class insultGenerator {
         return startSentence.get(randomStartSentence);
     }
 
-    static ArrayList<String> adjective = new ArrayList<String>();
+    public static ArrayList<String> adjective = new ArrayList<String>();
 
     static {
-        adjective.add("a fat");
+        adjective.add("a fat..........");
         adjective.add("an ugly");
         adjective.add("a smelly");
         adjective.add("a useless");
@@ -84,10 +89,12 @@ public class insultGenerator {
         adjective.add("an unreliable");
         adjective.add("a moist");
 
-
     }
 
-
+    public static void addAdjectives(ArrayList<String> currentList, Context context){
+        adjective.addAll(currentList);
+        System.out.println(adjective);
+    }
 
     public String getRandomAdjective() {
 
