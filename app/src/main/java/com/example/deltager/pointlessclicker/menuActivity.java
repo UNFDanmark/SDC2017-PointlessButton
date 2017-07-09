@@ -34,22 +34,39 @@ public class menuActivity extends AppCompatActivity {
     }
 
     public void addAdjectiveToList(View view) throws IOException, ClassNotFoundException {
-        String newAdjective = addAdjective.getText().toString();
-        //adjective.add(newAdjective);
-        action = newAdjective + " has been added to the dictionary";
-        toast = Toast.makeText(this, action, Toast.LENGTH_SHORT);
-        toast.show();
-        addAdjective.setText("");
-        Save.saveFiles(Save.returnSavedFiles(getApplicationContext()), newAdjective, getApplicationContext());
+        if (!addAdjective.getText().toString().equals("")) {
+            String newAdjective = addAdjective.getText().toString();
+            //adjective.add(newAdjective);
+            action = newAdjective + " has been added to the dictionary";
+            toast = Toast.makeText(this, action, Toast.LENGTH_SHORT);
+            toast.show();
+            addAdjective.setText("");
+            Save.saveFiles(Save.returnSavedFiles(getApplicationContext()), newAdjective, getApplicationContext());
+        } else {
+            Context context = getApplicationContext();
+            CharSequence text = "You need to add a adjective";
+            int duration = Toast.LENGTH_SHORT;
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
+        }
     }
+
     public void addSubstantivToList(View view) throws IOException, ClassNotFoundException {
-        String newSubstantiv = addSubstantiv.getText().toString();
-        substantiv.add(newSubstantiv);
-        action = newSubstantiv + " has been added to the dictionary";
-        toast = Toast.makeText(this, action, Toast.LENGTH_SHORT);
-        toast.show();
-        addSubstantiv.setText("");
-        Save.saveFilesSub(Save.returnSavedFilesSub(getApplicationContext()), newSubstantiv, getApplicationContext());
+        if (!addSubstantiv.getText().toString().equals("")) {
+            String newSubstantiv = addSubstantiv.getText().toString();
+            substantiv.add(newSubstantiv);
+            action = newSubstantiv + " has been added to the dictionary";
+            toast = Toast.makeText(this, action, Toast.LENGTH_SHORT);
+            toast.show();
+            addSubstantiv.setText("");
+            Save.saveFilesSub(Save.returnSavedFilesSub(getApplicationContext()), newSubstantiv, getApplicationContext());
+        } else {
+            Context context = getApplicationContext();
+            CharSequence text = "You need to add a substantive";
+            int duration = Toast.LENGTH_SHORT;
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
+        }
     }
 
     public void resetClick(View view)
@@ -57,7 +74,6 @@ public class menuActivity extends AppCompatActivity {
         long clickCounter = 0;
         Save.save(clickCounter, getApplicationContext());
         Context context = getApplicationContext();
-
         CharSequence text = "Your clicks has been reset";
         int duration = Toast.LENGTH_SHORT;
 
