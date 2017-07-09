@@ -54,6 +54,11 @@ public class insultGenerator {
         startSentence.add("I bet your cat likes licking");
         startSentence.add("Your planning is just as bad as");
         startSentence.add("OH yeah, click me harder! OH, daddy, click me like");
+        startSentence.add("The trash gets picked up tommorow. get ready you");
+        startSentence.add("Seize the moment, ‘cause tomorrow you might be dead, you");
+        startSentence.add("I have embraced the fact you are");
+
+
 
     }
 
@@ -130,6 +135,7 @@ public class insultGenerator {
         substantiv.add("cupcake");
         substantiv.add("doodledood");
         substantiv.add("Harry Potter looking fellow");
+        System.out.println(substantiv);
     }
 
     public void updateAdjectives(){

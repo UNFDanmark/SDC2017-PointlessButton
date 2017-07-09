@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_CONTACTS}, 123);
         }
-        insultGenerator.addAdjectives(Save.returnSavedFiles(getApplicationContext()), getApplicationContext());
+
     }
 
     public void notification() {
@@ -179,7 +179,7 @@ public class MainActivity extends AppCompatActivity {
         score.setText(String.valueOf("Clicks: " + clickCounter));
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.cancel(1);
-
+        insultGenerator.addAdjectives(Save.returnSavedFiles(getApplicationContext()), getApplicationContext());
     }
 
     public void mutesound(View view) {
