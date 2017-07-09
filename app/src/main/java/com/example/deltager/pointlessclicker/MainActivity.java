@@ -5,6 +5,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.CountDownTimer;
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     // ved app start
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         insult = new insultGenerator(getApplicationContext());  //Generates random text
@@ -49,14 +51,14 @@ public class MainActivity extends AppCompatActivity {
         textInsult = (TextView) findViewById(R.id.textInsult);
 
 
-        if (ContextCompat.checkSelfPermission(this,  Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED) {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_CONTACTS}, 123);
         }
     }
 
 
     public static int genRandomNum() {   // Generate random number{
-        int randomNum = (int) (Math.random() * 100);
+        int randomNum = (int) (Math.random() * 1000000);
         return randomNum;
     }
 
@@ -66,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         if (mutesound == false) {
+
             final MediaPlayer sound = MediaPlayer.create(this, R.raw.clicksound);
 
             sound.setAudioStreamType(AudioManager.STREAM_MUSIC);
@@ -172,6 +175,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void mutesound(View view) {
+        if (mutesound) {
+            mute.setImageResource(R.mipmap.unmuted);
+
+        } else {
+            mute.setImageResource(R.mipmap.mutedasset);
+
+        }
         mutesound = !mutesound;
     }
 

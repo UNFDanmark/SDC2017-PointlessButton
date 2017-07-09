@@ -40,7 +40,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.277" />
+        app:layout_constraintVertical_bias="0.322" />
 
     <EditText
         android:id="@+id/textAddNoun"
@@ -58,7 +58,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textAddAdjective"
-        app:layout_constraintVertical_bias="0.014" />
+        app:layout_constraintVertical_bias="0.301" />
 
     <Button
         android:id="@+id/addAdjectiveButt"
@@ -86,7 +86,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/textAddNoun"
         app:layout_constraintLeft_toRightOf="@+id/textAddNoun"
         app:layout_constraintTop_toTopOf="@+id/textAddNoun"
-        app:layout_constraintVertical_bias="0.666" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/backButton"
@@ -100,5 +100,31 @@
         app:layout_constraintRight_toRightOf="parent"
         tools:layout_editor_absoluteX="236dp"
         tools:layout_editor_absoluteY="510dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="0dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:text="Insert word: Substantive"
+        app:layout_constraintBottom_toTopOf="@+id/textAddNoun"
+        app:layout_constraintHorizontal_bias="0.096"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Insert word: a/an + adjective"
+        android:layout_marginBottom="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/textAddAdjective"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.109" />
 
 </android.support.constraint.ConstraintLayout>

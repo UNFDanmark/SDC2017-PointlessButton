@@ -144,7 +144,7 @@ public class insultGenerator {
             }
             chanceadd *= 1.25;
 
-            String insult = getRandomStartSentence() + " " + getRandomAdjective() + " " + getRandomSubstantiv();
+            String insult = getRandomStartSentence() + " " + getRandomAdjective() + ", " + getRandomSubstantiv();
             //System.out.println(insult);
             return insult;
         }
