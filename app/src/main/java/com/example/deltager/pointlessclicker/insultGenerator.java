@@ -88,7 +88,7 @@ public class insultGenerator {
         startSentence.add("Turn off your camera. I don't want to look at a");
         startSentence.add("You ");
         startSentence.add("You smile like");
-        startSentence.add("You gonna by");
+        startSentence.add("You gonna buy");
         startSentence.add("I bet you cut onions like");
         startSentence.add("I bet people see you as a");
 
