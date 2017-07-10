@@ -147,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void updateClickCounter()    // UpdateClickCounter
     {
-        clickCounter ++;
+        clickCounter++;
         score.setText(String.valueOf("Clicks: " + clickCounter));
         Save.save(clickCounter, getApplicationContext());
     }
